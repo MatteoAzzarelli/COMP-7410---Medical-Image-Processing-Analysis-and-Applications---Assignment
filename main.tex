@@ -1,0 +1,102 @@
+\documentclass[a4 paper,12pt]{article}
+% Set target color model to RGB
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb,tkz-linknodes}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+\usepackage{hyperref}   % link web
+\usepackage{setspace}       % set the space between lines
+\doublespacing
+
+%\usetikzlibrary{through,backgrounds}
+\hypersetup{%
+pdfauthor={Matteo Azzarelli},%
+pdftitle={Homework},%
+pdfkeywords={latex, Auditing},%
+pdfcreator={PDFLaTeX},%
+pdfproducer={PDFLaTeX},%
+}
+%\usetikzlibrary{shadows}
+\usepackage{booktabs}
+\input{macros.tex}
+
+
+\begin{document}
+\homework{Assignment}{Due: 2 May 2019}{Mr. Rui Shao, Prof. Yuen}{}{Matteo Azzarelli}{18432468}
+
+\problem{1a.}{25 marks}
+    A new hospital in China is interested to build a picture archiving and communication system (PACS). Before the hospital senior management makes the decision, justifications are required. Suppose you are a chief architect in the IT Department and are asked to prepare the report. Discuss how you would justify building the PACS in the hospital from radiologist, referring physician, financial and IT maintenance perspectives.
+    
+    \solution
+    
+    \textbf{- Radiologist prospective} 
+        Thanks to a PACS radiologist could make fast the process and their work. In fact, if we consider that a patient is registered in the HIS and this data will pass to the radiologist they shouldn't register again their data, gain time. Not only this, they can manage all the work flow avoiding mistake like loss of film or mismatched of data and film, because with the PACS and in particular thanks to DICOM images and patient data are only a indivisible file.
+        In addition, they can storage the data in a easy way without huge ammount of paper, this means that also to find a scan is much more easy and they for instance can find and see the previous scans in a easy way ad thanks to the advanced tool that the system provide they are able to modify the contrast, zoom, etc and as we know for example in a single CT they can shot 60 images and than chose the best one or combine them in order to improve the quality. Doing this they are also able to write a more accurate report.
+        
+    \textbf{- Referring physician prospective:} 
+        For referring physician the PACS bring many advantages, like they can read and write comments and reports together with the scans directly on the system, without any lose of time like find the folder of patient. In addition they can ask for consultation of another doctor not necessary near to them, with evident advantages. Than they are sure that there are no duplication of the same document, with the consequence that they are sure that documents are update at the last version.
+    
+    \textbf{- Financial prospective:} 
+        At the beginning could seams a vast of money because to start a PACS need to set or update all the structures like network, servers, gateway etc.
+        But this initial amount will be recovered with the time gained from the hospital staff.
+        
+        In addition, thanks to acquisition Gateway all or in the worst case the majority part of the preexisting machinery can be used with the new System.
+        
+        Obviously store and maintain in a proper way all the data acquired by an hospital require a vast amounts of data storage with consequently costs. But we can think that with the digital format we are going to reduce or eliminate all the costs of fiscal document in particular film that is quite expensive.
+    
+    \textbf{- IT maintenance prospective:} 
+        The IT stuff have to consider all the problems related to this kind of system, like storage and backup data, network band with and they have also to proof to the doctors that the quality of the pictures are good as the film one. In particular for data that have to be compressed, they have to proof that it will be reasonable good, and the best way is show a comparison of pictures to the doctors and let them decide witch is the compress one and which is not. This is a very effective practice to solve this problem. And obviously guarantee that the monitors are specific and calibrated in order to see perfect images.
+        
+        An other important point when they are going to chose a system is be sure that it will not be bonded to a specific brand, in order to maintain the flexibility.
+        
+        They have also to make sure that the system fallow the standards in order to be able to communicate with other systems and in case to move easily the data from one system to an other.
+\newpage
+\problem{1b.}{10 marks}
+    Suppose the hospital senior management finally decides to develop the PACS in the hospital. Discuss the major requirements you would consider in developing the
+    PACS.
+    
+    \solution
+    
+        There are several point that it is very important to consider.
+        
+        First off all, we should guarantee that the system is never off, because we can't allowed that a patient die because we are not able to see a scan. So, we should consider to have at least two synchronised servers so if one of them go down we still be able to work with the other.
+        
+        Secondly, the network should be able to sustain the traffic generated by the exchange of pictures and related data. So, nowadays we can think to use fiber for the dorsal and gigabit lan for the other.
+        
+        The other main point of a PAC System is the Acquisition Gateway, in fact if this fail all the system will freeze. This is the node that connect the instruments like TC or MIR machinery to the network and to the server, so this should be able to accept different format and convert in the correct one.
+        
+        So, from the previous point we can understand the importance of standards and why we have to adopt them.
+    
+        Now, after that the image are acquired, transferred and processed, it is time to store them. So, we need to have a storage that it will be able to store all the pictures and related data, but this is not sufficient, in fact we have to maintain the entire history of our patient, but it is evident that we can't store all this data in raw format, because the required space it will be too much. So, to solve this problem we can compress the pictures after a certain time in order to save space.
+        
+        Also on the data storage we have the same problem encountered with the server, so we can think to have a backup storage that could works also as storage in emergency case.
+        
+        In addition, we have to consider that these data are sensible data and we have to guarantee the privacy, so we have to consider to establish some access rules with different privileges and also to put the database in a safe zone in our network.
+        
+        After this we have to consider the train of staff in order to make them able to work with this system.
+    
+\problem{2b.}{15 marks}
+    Both Computed Tomography (CT) and Magnetic Resonance Imaging (MRI) can produce 3-dimension images. Discuss the differences between these two modes, in terms of the technology, scanning time, cost and other characteristics.
+    
+    \solution
+    
+        Both of them are used to capture 3D images of human body, but the main difference is that MRI uses the radio waves and the CT use X-ray.
+        
+        CT, computed tomography, is performed using the X-ray property to be absorbed in different tissue thicknesses. That is, CT, in general, is identical to radiography but thanks to the collection of a large number of 2D X-ray images from different angles it is possible combine them together, process called Back projection, which make possible calculate the final 3D scan.
+        
+        MRI idea is very similar to CT but the technology is different. In fact, MRI use the radio waves in order to obtain the scan. 
+        It is based on the physical principle of nuclear magnetic resonance, that is, that physical phenomenon of energy absorption from a radio-frequency electromagnetic field that occurs when atomic nuclei are found at characteristic frequencies.
+        
+        Another big difference between these two technologies is that CT takes a few seconds, while MRI takes 10 minutes or more. So as a side effect we have that the CT subjects the patient to a strong radiation, but this lasts for a few seconds, about 10 sec, so it is more suitable for patients suffering from claustrophobia. While MRI requires much more time this is more suitable for patients without psychic problems, as it is required to remain immobile.
+        
+        MRI is much more expensive rather than CT first of all because to produce that machinery they have to build super-conducting magnet that are very expensive.
+        So the costs of MRI is it around double of CT.
+        
+        Basically MRI provides the most complete information available when studying soft tissue and good contrasts resolution, instead, the CT is more powerful to study bones and pathologies in the organs of the abdominal cavity.
+        \end{document} 
